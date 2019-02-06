@@ -1,23 +1,43 @@
 //buisness logic
-function Place(city,country,stay,review){
-  this.city = city;
-  this.country = country;
-  this.stay = stay;
-  this.review = review;
+
+function AllPlaces() {
+  this.places = [],
+  this.currentID = 0
 }
 
-Place.prototype.percentageOfLife = function () {
+AllPlaces.prototype.addPlace = function(place) {
+  this.places.push(place);
+}
+
+AllPlaces.prototype.assignID = function() {
+  this.currentID ++;
+  return this.currentID;
+}
+
+function Place(city,country,stay,review) {
+  this.city = city,
+  this.country = country,
+  this.stay = stay,
+  this.review = review,
+}
+
+Place.prototype.percentageOfLife = function (stay) {
   return stay / userLife * 100;
 }
 
 
 //UI logic
 $(document).ready( function() {
-  $(".btn").submit( function(event) {
+  $("#place-form").submit( function(event) {
     event.preventDefault();
     var inputtedCity = $("#city").val();
-    console.log(inputtedCity);
+    var inputtedCountry = $("#country").val();
+    var inputtedStay = $("#stay-length").val();
+    var inputtedReview = $("#review").val();
   });
+  
+
+
 
 
 });
