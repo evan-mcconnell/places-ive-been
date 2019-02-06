@@ -13,7 +13,11 @@ Place.prototype.percentageOfLife = function () {
 
 //UI logic
 $(document).ready( function() {
-
+  $(".btn").submit( function(event) {
+    event.preventDefault();
+    var inputtedCity = $("#city").val();
+    console.log(inputtedCity);
+  });
 
 
 });
